@@ -27,7 +27,7 @@ import com.example.donation.ui.login.LoginViewModel;
 import com.example.donation.ui.login.LoginViewModelFactory;
 import com.example.donation.databinding.ActivitySignupBinding;
 
-public class LoginActivity extends AppCompatActivity {
+class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private ActivitySignupBinding binding;
