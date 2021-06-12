@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Donation">
-        <activity android:name=".info"></activity>
+        <activity android:name=".MainHome">
+
+        </activity>
+        <activity android:name=".info" />
         <activity android:name=".profile" />
         <activity android:name=".feed" />
         <activity android:name=".signup" />
-        <activity android:name=".homepage" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_signup" />
+        <activity android:name=".homepage"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

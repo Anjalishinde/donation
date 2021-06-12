@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-class homepage extends AppCompatActivity {
+public class MainHome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
+        setContentView(R.layout.activity_main_home);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -34,16 +34,16 @@ class homepage extends AppCompatActivity {
             // by using there id.
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
-                case R.id.firstFragment:
+                case R.id.home:
                     selectedFragment = new Home();
                     break;
-                case R.id.secondFragment:
+                case R.id.feed:
                     selectedFragment = new FeedFragment();
                     break;
-                case R.id.thirdFragment:
+                case R.id.info:
                     selectedFragment = new InfoFragment();
                     break;
-                case R.id.fourthFragment:
+                case R.id.profile:
                     selectedFragment = new ProfileFragment();
                     break;
             }
