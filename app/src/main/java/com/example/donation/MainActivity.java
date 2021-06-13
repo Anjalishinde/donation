@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
     public void loginbutt(View view){
         Toast.makeText(this,"login",Toast.LENGTH_LONG).show();
         Intent intent=new Intent(this, signup.class);
-        startService(intent);
+        startActivity(intent);
     }
 }
