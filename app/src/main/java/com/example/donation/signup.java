@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class signup extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class signup extends AppCompatActivity {
     private Button Btn;
     private ProgressBar progressbar;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,18 +34,17 @@ public class signup extends AppCompatActivity {
         // initialising all views through id defined above
         emailTextView = findViewById(R.id.username);
         passwordTextView = findViewById(R.id.password);
-        Btn = findViewById(R.id.register);
+        //Btn = findViewById(R.id.register);
 
-        Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                registerNewUser();
-            }
-        });
+//        Btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                registerNewUser();
+//            }
+//        });
     }
-    private void registerNewUser() {
-
+    public void registerNewUser(View view) {
 
         // Take the value of two edit texts in Strings
         String email, password;
@@ -91,12 +92,17 @@ public class signup extends AppCompatActivity {
                             // Registration failed
                             Toast.makeText(
                                     getApplicationContext(),
-                                    "Registration failed!!"
-                                            + " Please try again later",
+                                    "Already Registration!!"
+                                            + " Go to login ",
                                     Toast.LENGTH_LONG)
                                     .show();
                         }
                     }
                 });
+    }
+    public void tologin(View view){
+        Intent intent= new Intent(signup.this,
+                MainActivity.class);
+        startActivity(intent);
     }
 }

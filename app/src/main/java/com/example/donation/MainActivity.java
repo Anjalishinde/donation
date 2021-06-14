@@ -1,26 +1,129 @@
 package com.example.donation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.donation.databinding.ActivitySignupBinding;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.AuthResult;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText emailTextView, passwordTextView;
+    private Button Btn;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        mAuth = FirebaseAuth.getInstance();
+
+        // initialising all views through id defined above
+        emailTextView = findViewById(R.id.email);
+        passwordTextView = findViewById(R.id.editText2);
+        Btn = findViewById(R.id.login);
+
+
+        // Set on Click Listener on Sign-in button
+        Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent
+                        = new Intent(MainActivity.this,
+                        homepage.class);
+                startActivity(intent);
+                loginUserAccount();
+            }
+        });
+
     }
 
-    public void loginbutt(View view){
-        Toast.makeText(this,"login",Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(this, signup.class);
+    private void loginUserAccount()
+    {
+
+        // show the visibility of progress bar to show loading
+
+        // Take the value of two edit texts in Strings
+        String email, password;
+        email = emailTextView.getText().toString();
+        password = passwordTextView.getText().toString();
+
+        // validations for input email and password
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getApplicationContext(),
+                    "Please enter email!!",
+                    Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getApplicationContext(),
+                    "Please enter password!!",
+                    Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+
+        // signin existing user
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(
+                        new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(
+                                    @NonNull Task<AuthResult> task)
+                            {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Login successful!!",
+                                            Toast.LENGTH_LONG)
+                                            .show();
+
+                                    // hide the progress bar
+
+
+                                    // if sign-in is successful
+                                    // intent to home activity
+                                    Intent intent
+                                            = new Intent(MainActivity.this,
+                                            homepage.class);
+                                    startActivity(intent);
+                                }
+
+                                else {
+
+                                    // sign-in failed
+                                    Toast.makeText(getApplicationContext(),
+                                            "Login failed!!",
+                                            Toast.LENGTH_LONG)
+                                            .show();
+
+                                    // hide the progress bar
+
+                                }
+                            }
+                        });
+
+
+    }
+    public void signup(View view){
+        Intent intent
+                = new Intent(MainActivity.this,
+                signup.class);
         startActivity(intent);
     }
+
 }
