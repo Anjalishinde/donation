@@ -83,6 +83,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 fragment = new ClothesFragment();
                 replaceFragment(fragment);
                 break;
+            case R.id.view2:
+                fragment = new FoodFragment();
+                replaceFragment(fragment);
+                break;
+            case R.id.view3:
+                fragment = new BloodFragment();
+                replaceFragment(fragment);
+                break;
+            case R.id.view4:
+                fragment = new OtherFragment();
+                replaceFragment(fragment);
+                break;
         }
     }
     public void replaceFragment(Fragment fragment){

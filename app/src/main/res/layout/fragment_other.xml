@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
-    tools:context=".ClothesFragment">
+    tools:context=".OtherFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/back2"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -16,11 +16,11 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
-            android:text="Donate Clothes Details"
-            android:textSize="24sp" />
+            android:text="Donate Other Details"
+            android:textSize="30sp" />
 
         <EditText
             android:id="@+id/username5"
@@ -60,7 +60,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/border"
-            android:hint="Cloth Type*"
+            android:hint="Type"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true" />
 
@@ -107,20 +107,13 @@
             android:selectAllOnFocus="true" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Upload Image" />
-
-        <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"
             android:layout_marginLeft="150dp"
+            android:layout_marginTop="40dp"
             android:text="Button" />
 
     </LinearLayout>
-
 </FrameLayout>
